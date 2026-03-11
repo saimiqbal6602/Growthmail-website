@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 18% 7%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 18% 7%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 160 100% 45%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 220 15% 12%;
+    --secondary-foreground: 0 0% 80%;
+
+    --muted: 220 15% 12%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 160 100% 45%;
+    --accent-foreground: 220 20% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 15% 14%;
+    --input: 220 15% 14%;
+    --ring: 160 100% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --glow: 160 100% 45%;
+    --surface: 220 18% 7%;
+    --surface-hover: 220 15% 10%;
+    --text-secondary: 220 10% 55%;
+    --text-tertiary: 220 10% 35%;
+    --gradient-start: 160 100% 45%;
+    --gradient-end: 170 80% 55%;
+
+    --sidebar-background: 220 18% 7%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 160 100% 45%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 220 15% 14%;
+    --sidebar-ring: 160 100% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background: hsl(160 100% 45% / 0.25);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  }
+
+  .glow-sm {
+    box-shadow: 0 0 20px -5px hsl(var(--glow) / 0.3);
+  }
+
+  .glow-md {
+    box-shadow: 0 0 40px -10px hsl(var(--glow) / 0.4);
+  }
+
+  .border-glow {
+    border-color: hsl(var(--glow) / 0.2);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .bg-radial-fade {
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, hsl(var(--glow) / 0.08), transparent);
+  }
+}
